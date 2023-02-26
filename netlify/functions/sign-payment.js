@@ -10,6 +10,7 @@ exports.handler = async function (event, context) {
    *
    * @returns {String}
    */
+  const content = event.body.subject.split("|").unshift
   const { txn_type, primary_ref, amount, fp_timestamp } = event.body.subject;
   const content = [
     process.env.MERCHANT_NAME,
