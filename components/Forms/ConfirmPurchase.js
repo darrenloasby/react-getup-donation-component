@@ -18,9 +18,9 @@ function handlePayment(payload) {
 
 const Payment = (props) => (
   <SecureFrame
-    live={true}
+    live={false}
     merchantId={props.merchantId}
-    reference={props.customerName}
+    reference={props.reference}
     onSignPayment={(subject) => handleSignPayment(subject)}
     onPayment={(payload) => handlePayment(payload)}
   />
