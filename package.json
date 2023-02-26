@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "netlify dev",
     "build": "next build",
-    "start": "next start"
+    "start": "netlify serve"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.11",
@@ -13,25 +13,33 @@
     "@primer/react": "^35.20.0",
     "@unform/core": "^2.1.6",
     "@unform/web": "^2.1.6",
+    "crypto-js": "^4.1.1",
     "final-form": "^4.20.2",
     "formik": "^2.2.6",
+    "js-base64": "^3.7.5",
+    "moment": "^2.29.4",
     "next": "10.2.0",
     "next-postcss": "^2.0.0",
     "postcss-import": "^15.1.0",
     "postcss-loader": "^7.0.2",
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-final-form": "^6.5.3",
     "react-form-stepper": "2.0.3",
     "react-hook-form": "^7.5.2",
+    "react-iframe": "^1.8.5",
     "sass": "^1.32.13",
     "yup": "^0.32.9"
   },
   "keywords": [],
   "description": "",
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^4.30.4",
     "autoprefixer": "^10.4.13",
+    "netlify-cli": "^13.0.0",
     "postcss": "^8.4.21",
+    "rollup": "^3.17.3",
     "tailwindcss": "^3.2.7"
   }
 }

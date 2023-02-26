@@ -1,6 +1,30 @@
 import styles from "../../styles/styles.module.scss";
 import { useForm } from "react-hook-form";
 import { useFormData } from "../../context";
+import SecureFrame from "../SecureFrame";
+
+function handleSignPayment(subject) {
+  return fetch("/.netlify/functions/sign-payment", {
+    method: "POST",
+    body: subject,
+  })
+    .then((response) => response.json())
+    .then((json) => json.fingerprint);
+}
+
+function handlePayment(payload) {
+  console.log(payload);
+}
+
+const Payment = (props) => (
+  <SecureFrame
+    live={true}
+    merchantId={props.merchantId}
+    reference={props.customerName}
+    onSignPayment={(subject) => handleSignPayment(subject)}
+    onPayment={(payload) => handlePayment(payload)}
+  />
+);
 
 export default function ConfirmPurchase({ formStep, nextFormStep }) {
   const { setFormValues } = useFormData();
@@ -21,6 +45,12 @@ export default function ConfirmPurchase({ formStep, nextFormStep }) {
       <h2>Confirm Purchase</h2>
 
       <form onSubmit={handleSubmit(onSubmit)}>
+        <Payment
+          merchantId="GUQ00"
+          reference="1234"
+          onSignPayment={(subject) => handleSignPayment(subject)}
+          onPayment={(payload) => handlePayment(payload)}
+        />
         <div className={styles.formRow}>
           <label htmlFor="checkbox">
             <input
